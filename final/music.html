@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Qahiri&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: white;
+        }
+
+        .work {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 50px;
+            padding: 90px 90px;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .work-number {
+            font-family: "Qahiri", sans-serif;
+            font-weight: 400px;
+            font-size: 40px;
+            color: #888;
+        }
+
+        .work-intro h2 {
+            font-family: "Unbounded", sans-serif;
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .work-intro p {
+            max-width: 680px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .media-tag {
+            font-family: "Unbounded", sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-top: 40px
+        }
+
+        iframe {
+            width: 70%;
+            height: 420px;
+            border: none;
+            border-radius: 26px;
+            display: block;
+        }
+
+        audio {
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        .cover {
+            width: 80%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            text-align: center;
+            padding: 120px 20px 40px;
+            font-size: 14px;
+            color: #888;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="work">
+        <div class="work-number">01</div>
+
+        <div class="work-intro">
+            <h2>illusory reality dream</h2>
+            <p>
+                A DnB-inspired work developed from a studio composition into a live stage piece,
+                in collaboration with an African drummer, dancers, and lighting design,
+                exploring improvisational dialogue between sound and movement.
+            </p>
+
+            <div class="media">
+                <div class="media-tag">Stage Version</div>
+
+                <iframe src="https://drive.google.com/file/d/1xFzSFV6VyzSP8ls9rTlE0YOsG4W2cCvw/preview" allow="autoplay"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="media">
+                <div class="media-tag">Audio Version</div>
+
+                <audio controls src="audio/illusory.mp3"></audio>
+            </div>
+        </div>
+    </div>
+
+    <div class="work">
+        <div class="work-number">02</div>
+
+        <div class="work-intro">
+            <h2>Jibaro excerpt sound design</h2>
+            <p>
+                A sound design–focused project for an excerpt from Jibaro,
+                combining foley, environmental sound, and electronic composition
+                to shape rhythm, texture, and tension.
+            </p>
+
+            <div class="media">
+                <iframe src="https://drive.google.com/file/d/1OTOJUtJwENCmWHDmfpIzf5yefZ0q9MFQ/preview" allow="autoplay"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="work">
+        <div class="work-number">03</div>
+
+        <div class="work-intro">
+            <h2>Panic Attack</h2>
+            <p>A fusion-based composition combining elements from jazz, electronic,
+                and groove-oriented styles. The piece explores rhythmic interplay,
+                harmonic color, and interaction between instruments.</p>
+            <div class="media">
+                <img src="cover/panic-cover.png" class="cover">
+                <audio controls src="audio/panic-attack.mp3"></audio>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote">
+        There is only one heroism in the world:<br>
+        to see the world as it is,<br>
+        and to love it.
+    </div>
+
+</body>
+
+</html>

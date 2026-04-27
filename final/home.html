@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Unbounded:wght@200..900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: "Unbounded", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .stage {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+      max-width: 800px;
+    }
+
+    .intro h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .intro p {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+
+    .cards {
+      width: 100%;
+      max-width: 1200px;
+      height: 70vh;
+      display: flex;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.6s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      background-size: cover;
+      background-position: center 15%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card.active {
+      flex: 4;
+    }
+
+    .dance-card {
+      background-image: url("images/dance.jpg");
+    }
+
+    .music-card {
+      background-image: url("images/music.jpg");
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      transition: all 0.6s ease;
+    }
+
+    .card.active .overlay {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      transition: all 0.6s ease;
+    }
+
+    .number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      max-width: 380px;
+      line-height: 1.5;
+      opacity: 0;
+      transition: all 0.6s;
+    }
+
+    .card.active .subtitle {
+      opacity: 1;
+    }
+
+    .card:not(.active) .title {
+      font-size: 1.2rem;
+    }
+
+    .card:not(.active) .subtitle {
+      opacity: 0;
+    }
+
+    .enter-link {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 18px;
+      border: 1px solid white;
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: all 0.6s;
+    }
+
+    .card.active .enter-link {
+      opacity: 1;
+    }
+
+    .enter-link:hover {
+      background: white;
+      color: black;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        flex-direction: column;
+        height: 80vh;
+      }
+
+      .card {
+        min-height: 180px;
+      }
+
+      .card.active {
+        flex: 3;
+      }
+
+      .title {
+        font-size: 1.6rem;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stage">
+
+    <div class="intro">
+      <h1>Zephyra Chang</h1>
+      <p>Zeph as a musician, Rara as a dancer.</p>
+
+      <p>A collector of beauty and everyday moments,
+        drawn to Romain Rolland‘s idea of heroism—
+        to see the world as it is, and still choose to love it.</p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card dance-card active" id="danceCard">
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="number">1</div>
+          <div class="title">DANCE</div>
+          <div class="subtitle">
+            Freestyle, battle, performance, and movement exploration.
+          </div>
+          <a href="dance.html" class="enter-link">Enter</a>
+        </div>
+      </div>
+
+      <div class="card music-card" id="musicCard">
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="number">2</div>
+          <div class="title">MUSIC</div>
+          <div class="subtitle">
+            Original work, sound design, atmosphere, and creative projects.
+          </div>
+          <a href="music.html" class="enter-link">Enter</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let danceCard = document.getElementById("danceCard");
+    let musicCard = document.getElementById("musicCard");
+
+    danceCard.addEventListener("click", function () {
+      danceCard.classList.add("active");
+      musicCard.classList.remove("active");
+    });
+
+    musicCard.addEventListener("click", function () {
+      musicCard.classList.add("active");
+      danceCard.classList.remove("active");
+    });
+  </script>
+
+</body>
+
+</html>

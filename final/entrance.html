@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrance page</title>
+
+    <!-- i used the font from fonts.google.com -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: "Unbounded", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            overflow: hidden;
+        }
+
+        .stage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+
+        .left-group,
+        .right-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .left-group img,
+        .right-group img {
+            width: 100px;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .center-block {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .left-text {
+            font-size: 78px;
+            font-weight: bold;
+        }
+
+        .right-text {
+            font-size: 24px;
+            line-height: 1.3;
+        }
+
+        .closed-door {
+            width: 120px;
+            height: 250px;
+            background: url("images/door.jpg") center/cover no-repeat;
+            transition: all 0.7s;
+            cursor: pointer;
+        }
+
+        .expand-door {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .closed-door:hover {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+        }
+
+        .hidden {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+
+        <div class="left-group hidden">
+            <img src="images/2.jpg">
+            <img src="images/3.jpg">
+        </div>
+
+        <div class="center-block">
+            <div class="left-text hidden">HI</div>
+
+            <div class="closed-door" id="closed-door"></div>
+
+            <div class="right-text hidden">
+                THIS IS <br> ZEPHYRA CHANG</div>
+        </div>
+
+        <div class="right-group hidden">
+            <img src="images/4.jpg">
+            <img src="images/5.jpg">
+            <img src="images/6.jpg">
+        </div>
+
+    </div>
+
+    <audio id="doorbell" src="audio/marimba.mp3"></audio>
+
+    <script>
+        let door = document.getElementById("closed-door");
+        let doorBell = document.getElementById("doorbell");
+
+        let leftGroup = document.querySelector(".left-group");
+        let rightGroup = document.querySelector(".right-group");
+
+        let leftText = document.querySelector(".left-text");
+        let rightText = document.querySelector(".right-text");
+
+        door.addEventListener("mouseenter", function () {
+            leftGroup.classList.add("show");
+            rightGroup.classList.add("show");
+            doorBell.play();
+
+            leftText.classList.add("show");
+            rightText.classList.add("show");
+        });
+
+        door.addEventListener("mouseleave", function () {
+            leftGroup.classList.remove("show");
+            rightGroup.classList.remove("show");
+            doorBell.pause();
+
+            leftText.classList.remove("show");
+            rightText.classList.remove("show");
+        });
+
+        door.addEventListener("click", function () {
+            door.classList.add("expand-door");
+
+            setTimeout(function () {
+                window.location.href = "home.html";
+            }, 700);
+        });
+    </script>
+
+</body>
+
+</html>
